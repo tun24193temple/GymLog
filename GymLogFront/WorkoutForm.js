@@ -18,11 +18,11 @@ function WorkoutForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Endpoint where your Flask server is expecting the workout form's request
+    // Endpoint where Flask server is expecting workout form's request
     const postUrl = 'http://localhost:5000/submit-workout';
   
     try {
-      // Call your Flask backend with the workout state as a JSON payload
+      // Call Flask backend with the workout state
       const response = await fetch(postUrl, {
         method: 'POST', // POST method to send data
         headers: {
@@ -30,16 +30,14 @@ function WorkoutForm() {
         },
         body: JSON.stringify(workout), // Stringify the form's workout state to send as body payload
       });
-      // Wait for the response from the server and convert it to JSON
+      // Wait for response from the server and convert it to JSON
       const responseBody = await response.json();
-      // Output the response from the server to the console (or handle as needed)
+      // Output response from server to console
       console.log(responseBody);
-      // Alert or notify the user of the request's outcome
+      // Alert the user
       alert('Workout saved successfully!');
     } catch (error) {
-      // Handle or log errors in the post request
       console.error('Failed to save workout: ', error);
-      // Output more notification on the action failure
       alert('Failed to save workout.');
     }
   };
