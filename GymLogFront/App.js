@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import WorkoutForm from './WorkoutForm'; // Import your WorkoutForm component
+import WorkoutForm from './WorkoutForm'; 
 
 function App() {
   return (
     <div className="App">
-      <WorkoutForm /> {/* Render your WorkoutForm component */}
+      <WorkoutForm /> {}
     </div>
   );
 }
